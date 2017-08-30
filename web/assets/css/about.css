@@ -1,0 +1,32 @@
+.container.about {
+  max-width:1024px;
+}
+
+.about h1 {
+  margin-left:20px;
+  font-family:avenir;
+  font-size:48px;
+}
+
+.about-text {
+  margin-top:50px;
+}
+
+.about-text img {
+  float:left;
+  margin-right:20px;
+  margin-bottom:20px;
+  width:250px;
+}
+
+.about-text p {
+  text-align:justify;
+  font-size:16px;
+}
+
+@media (min-width:991px) {
+  #about-carousel {
+    margin-top:90px;
+  }
+}
+

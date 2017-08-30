@@ -1,0 +1,85 @@
+.container.contact {
+  max-width:1024px;
+}
+
+.contact-text {
+  margin-top:50px;
+}
+
+.btn-send {
+  background:rgb(105,209,236) none repeat scroll 0 0;
+  border:0 none;
+  color:white;
+  font-size:15px;
+  padding:15px 45px;
+  text-transform:uppercase;
+  transition:all 0.3s ease 0s;
+  font-family:avenir;
+  border-radius:0px;
+}
+
+@media (max-width:767px) {
+  .btn-send {
+    padding:15px 20px;
+  }
+}
+
+@media (max-width:400px) {
+  .btn-send {
+    padding:15px 10px;
+    font-size:12px;
+  }
+}
+
+.btn-send:hover, .btn-send:focus, .btn-send:active, .btn-send:visited {
+  background:#058c99;
+  color:white;
+}
+
+.form-control {
+  background-color:#ddd;
+  border-radius:0px;
+  color:black;
+}
+
+.contact-info h2 {
+  transition:all 0.3s ease 0s;
+  position:relative;
+  margin-bottom:30px;
+}
+
+.contact-info h2:after {
+  position:absolute;
+  content:"";
+  left:17px;
+  top:60px;
+  display:block;
+  background:rgb(105,209,236);
+  height:3px;
+  width:75px;
+}
+
+.contact-info ul {
+  padding-top:20px!important;
+  list-style:outside none none;
+  margin:0;
+  padding:0;
+}
+
+.contact-info ul li {
+  display:list-item;
+  padding:10px 0;
+  border-bottom:1px solid #dddddd;
+  margin-bottom:5px;
+  font-size:20px;
+}
+
+.contact-info ul li:last-child {
+  border:none;
+}
+
+.contact-info ul li i {
+  color:rgb(105,209,236);
+  margin-right:10px;
+}
+

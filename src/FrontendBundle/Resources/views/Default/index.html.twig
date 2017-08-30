@@ -1,0 +1,58 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}{{ parent() }} Carpintería{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('admin/css/animate.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
+{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Capro Carpintería" />
+    <meta property="og:description" content="Somos un Taller que Diseña Muebles de Madera para Hogar, Oficinas, Constructoras, Hoteles, Restaurantes, etc." />
+    <meta property="og:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Capro Carpintería">
+    <meta name="twitter:description" content="Somos un Taller que Diseña Muebles de Madera para Hogar, Oficinas, Constructoras, Hoteles, Restaurantes, etc.">
+    <meta name="twitter:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}">
+{% endblock %}
+
+{% block body %}
+    <div id="main">
+        <section class="slide-wrapper">
+            <div class="container">
+                <div id="myCarousel" class="carousel slide">
+                    <div class="carousel-inner vertical">
+                        <div class="item active">
+                            <div class="fill" style=" background-color:white;"></div>
+                            <div class="carousel-caption">
+                                <img src="{{ asset('assets/images/capro.png') }}">
+                                <p class="pulse2"><i class="icon ion-ios-arrow-thin-down"></i></p>
+                            </div>
+                        </div>
+                        {% for item in home %}
+                            {% if loop.last %}
+                                <div class="item">
+                                    <div class="fill" style="background-color:{{ item.colorAvg }};background-image:url({{ asset('uploads/images/'~item.imagen) }});"></div>
+                                    <div class="carousel-caption">
+                                        <h3 data-animation="animated rollIn">{{ item.nombre }}</h3>
+                                        <p class="pulse2"><i class="icon ion-ios-arrow-thin-up"></i></p>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="item">
+                                    <div class="fill" style="background-color:{{ item.colorAvg }};background-image:url({{ asset('uploads/images/'~item.imagen) }});"></div>
+                                    <div class="carousel-caption">
+                                        <h3 data-animation="animated rollIn">{{ item.nombre }}</h3>
+                                        <p class="pulse2"><i class="icon ion-ios-arrow-thin-down"></i></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

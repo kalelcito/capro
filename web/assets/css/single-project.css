@@ -1,0 +1,148 @@
+#move {
+  overflow-x:hidden;
+}
+
+.single .cont-carousel {
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.wrap {
+  padding:0px 0px;
+}
+
+.single .brand1 {
+  position:fixed;
+  z-index:90;
+  height:80px;
+}
+
+.single .options {
+  width:100%;
+  position:absolute;
+  z-index:90;
+  height:85px;
+  bottom:0px;
+  background:white;
+  opacity:1;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  transition:all 0.5s ease-in-out;
+}
+
+.single .options.hide {
+  opacity:0;
+}
+
+.single .item.active {
+  cursor:default;
+}
+
+.carousel-control {
+  width:10%;
+}
+
+@media (min-width:768px) {
+  .carousel-control .ion-ios-arrow-thin-left, .carousel-control .ion-ios-arrow-thin-right {
+    width:30px;
+    height:30px;
+    margin-top:-10px;
+    font-size:50px;
+  }
+}
+
+.carousel-control .ion-ios-arrow-thin-left, .carousel-control .ion-ios-arrow-thin-right {
+  position:absolute;
+  top:50%;
+}
+
+.progress-line {
+  height:3px;
+  width:0px;
+  position:absolute;
+  top:0;
+  left:0;
+  background:rgb(105,209,236);
+}
+
+.brand1 .logo-single {
+  height:60px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.options a {
+  color:black;
+  line-height:80px;
+  width:30%;
+  display:inline-block;
+}
+
+@media (min-width:768px) {
+  .options a {
+    width:33%;
+  }
+}
+
+.options a.last {
+  text-align:right;
+  white-space:nowrap;
+}
+
+@media (min-width:768px) {
+  .options a.last {
+    padding-right:80px;
+  }
+}
+
+.options a.first {
+  text-align:left;
+}
+
+@media (min-width:768px) {
+  .options a.first {
+    padding-left:80px;
+  }
+}
+
+.options a.middle {
+  text-align:center;
+}
+
+.content {
+  width:100%;
+  position:absolute;
+  background:white;
+  display:none;
+  max-height:450px;
+  overflow-y:scroll;
+}
+
+.content p {
+  margin-top:20px;
+}
+
+.content ul {
+  text-align:center;
+  list-style:none;
+  margin-top:50px;
+}
+
+.content ul li {
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.content ul li + li {
+  margin-left:28px;
+}
+
+@media (min-width:768px) {
+  .content p {
+    margin-left:20%;
+    margin-right:20%;
+  }
+}
+

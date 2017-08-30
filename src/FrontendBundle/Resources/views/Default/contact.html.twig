@@ -1,0 +1,101 @@
+{% extends '@Frontend/layoutFooter.html.twig' %}
+
+{% block title %}{{ parent() }} | Contacto{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/contact.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/projects.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/projects.js') }}"></script>
+{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Contacto | Capro" />
+    <meta property="og:description" content="Contáctanos." />
+    <meta property="og:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto | Capro">
+    <meta name="twitter:description" content="Contáctanos.">
+    <meta name="twitter:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}">
+{% endblock %}
+
+{% block content %}
+    {% if enviado==1 %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#contacto_nombre').val('');
+                $('#contacto_email').val('');
+                $('#contacto_mensaje').val('');
+                swal({
+                    title: "Mensaje Enviado!",
+                    text: "Gracias!<br>Pronto te contactaremos.",
+                    type: "success",
+                    html:true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "OK!",
+                    closeOnConfirm: true
+                });
+            });
+        </script>
+    {% endif %}
+    <div class="container contact">
+        <h1>Contacto </h1>
+        <div class="contact-text">
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form_start(form,  {'action':path('contact')}) }}
+                        <div class="col-xs-6">
+                            <div class="form-group" id="name">
+                                {{ form_widget(form.nombre, {'attr': {'class': 'form-control  input-lg'} }) }}
+                                {% if form.nombre.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.nombre.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" id="email">
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control  input-lg'} }) }}
+                                {% if form.email.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.email.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group" id="message">
+                                {{ form_widget(form.mensaje, {'attr': {'class': 'form-control  input-lg'} }) }}
+                                {% if form.mensaje.vars.errors|length > 0 %}
+                                    <p class="help-block">
+                                        {% for error in form.mensaje.vars.errors %}
+                                            {{ error.message }} <br/>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-default btn-block btn-lg btn-send'} }) }}
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+                <div class="col-sm-6">
+                    <iframe allowfullscreen="" frameborder="0" width="100%" height="350" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAeEPwOne2aVUZSTdGL23G2yXyBd1sCkW4&amp;q=Metepec%2C+Mexico&amp;zoom=15"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

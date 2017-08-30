@@ -1,0 +1,42 @@
+{% extends '@Frontend/layoutProject.html.twig' %}
+
+{% block title %}{{ parent() }} | {{ proyecto.nombre }}{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ proyecto.nombre }} | Capro" />
+    <meta property="og:description" content="{{ proyecto.descripcion }}" />
+    <meta property="og:image" content="{{ absolute_url(asset('uploads/images/'~imagenes[0].imagen)) }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ proyecto.nombre }} | Capro">
+    <meta name="twitter:description" content="{{ proyecto.descripcion }}">
+    <meta name="twitter:image" content="{{ absolute_url(asset('uploads/images/'~imagenes[0].imagen)) }}">
+{% endblock %}
+
+{% block carousel %}
+    {% for item in imagenes %}
+        <div class="item {% if loop.first %}active{% endif %}">
+            <div class="fill" style=" background-color:{{ item.colorAvg }}; background-image:url({{ asset('uploads/images/'~item.imagen) }});">
+            </div>
+            <div class="carousel-caption">
+                <h3 data-animation="animated rollIn">{{ proyecto.nombre }}</h3>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block titulo %}
+    {{ proyecto.nombre }}
+{% endblock %}
+
+{% block descripcion %}
+    {{ proyecto.descripcion }}
+{% endblock %}
+
+{% block siguiente %}
+    {{ path('project',{'slug':sig}) }}
+{% endblock %}
+
+{% block imagen %}
+    {{ absolute_url(asset('uploads/images/'~imagenes[0].imagen)) }}
+{% endblock %}

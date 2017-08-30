@@ -1,0 +1,56 @@
+{% extends '@Frontend/layoutFooter.html.twig' %}
+
+{% block title %}{{ parent() }} | Nosotros{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Nosotros | Capro" />
+    <meta property="og:description" content="Con más de 10 años de experiencia, en CAPRO, nos especializamos en el diseño y manufactura de proyectos de carpintería, que atiendan las necesidades exactas de cada cliente y concepto." />
+    <meta property="og:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nosotros | Capro">
+    <meta name="twitter:description" content="Con más de 10 años de experiencia, en CAPRO, nos especializamos en el diseño y manufactura de proyectos de carpintería, que atiendan las necesidades exactas de cada cliente y concepto.">
+    <meta name="twitter:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/projects.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container about">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1>Nosotros</h1>
+                <div class="about-text">
+                    <p>Con más de 10 años de experiencia, en CAPRO, nos especializamos en el diseño y manufactura de proyectos de carpintería, que atiendan las necesidades exactas de cada cliente y concepto. </p>
+                    <p>Nuestra empresa trabaja de manera conjunta con arquitectos e ingenieros; de esta manera, logramos ofrecer servicios integrales que se adaptan a cada instalación, ambiente y espacio. </p>
+                    <p>Trabajar tu idea de la mano de CAPRO, facilita el proceso de la misma; evaluamos, medimos y proponemos con base en altos estándares de diseño, costo/beneficio y calidad. </p>
+                    <p>En CAPRO, nos mantenemos siempre a la vanguardia en diseño, maquinaria y personal, superando las expectativas de nuestros clientes. </p>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="carousel slide" data-ride="carousel" id="about-carousel">
+                    <div class="carousel-inner" role="listbox">
+                        {% for item in about %}
+                            <div class="item{% if loop.first %} active{% endif %}"><img src="{{ asset('uploads/images/'~item.imagen) }}" alt="{{ item.nombre }}"></div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <a class="left carousel-control" href="#about-carousel" role="button" data-slide="prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i><span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="right carousel-control" href="#about-carousel" role="button" data-slide="next">
+                            <i class="glyphicon glyphicon-chevron-right"></i><span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#about-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#about-carousel" data-slide-to="1"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

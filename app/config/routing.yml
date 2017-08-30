@@ -1,0 +1,41 @@
+core_p_imagenes:
+    resource: "@AdminBundle/Controller/PImagenesController.php"
+    type:     annotation
+
+core_proyectos:
+    resource: "@AdminBundle/Controller/ProyectosController.php"
+    type:     annotation
+
+core_clientes:
+    resource: "@AdminBundle/Controller/ClientesController.php"
+    type:     annotation
+
+core_imagenes:
+    resource: "@AdminBundle/Controller/ImagenesController.php"
+    type:     annotation
+
+core_administradores:
+    resource: "@AdminBundle/Controller/AdministradoresController.php"
+    type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /core
+
+frontend:
+    resource: "@FrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+logoutadmin:
+    path: /admin/logout
+
+pageNotFound:
+    path: /{path}
+    defaults: {_controller: FrontendBundle:Default:error404}

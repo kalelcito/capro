@@ -1,0 +1,47 @@
+{% extends '@Frontend/layoutFooter.html.twig' %}
+
+{% block title %}{{ parent() }} | Clientes{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/projects.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/customers.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
+{% endblock %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Clientes | Capro" />
+    <meta property="og:description" content="Conoce algunos de nuestros clientes." />
+    <meta property="og:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clientes | Capro">
+    <meta name="twitter:description" content="Conoce algunos de nuestros clientes.">
+    <meta name="twitter:image" content="{{ absolute_url(asset('assets/images/capro.png')) }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container about">
+        <div class="row customer">
+            <div class="col-sm-12">
+                <h1>Clientes </h1>
+                <div class="row">
+                    {% for item in clientes %}
+                        <div class="col-sm-4">
+                            <div class="receipt">
+                                <img class="img-responsive" src="{{ asset('uploads/images/'~item.imagen) }}">
+                                <div class="overlay" style="background-color: {{ item.color }}; color: {{ item.colorText }};">
+                                    <div class="title">
+                                        <h3>{{ item.nombre }}</h3>
+                                    </div>
+                                    <div class="desc">
+                                        <p>{{ item.descripcion }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

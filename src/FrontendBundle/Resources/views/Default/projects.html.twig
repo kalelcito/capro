@@ -1,0 +1,49 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Proyectos{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('admin/css/animate.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/projects.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script async src="{{ asset('assets/js/projects.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="main" class="projects">
+        <div class="container brand1">
+            <a href="{{ path('homepage') }}"> <img src="{{ asset('assets/images/capro.png') }}" class="logo"></a>
+        </div>
+        <section class="slide-wrapper">
+            <div class="container">
+                <div id="carousel-projects" class="carousel slide">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner vertical">
+                        {% for item in proyectos %}
+                        <div class="item {% if loop.first %}active{% endif %}">
+                            <a href="{{ path('project',{'slug':item.slug}) }}">
+                            {% set i=0 %}
+                            {% for img in imagenes %}
+                                {% if img.proyectos.id==item.id and i==0 %}
+                                    <div class="fill" style=" background-color:{{ img.colorAvg }}; background-image:url({{ asset('uploads/images/'~img.imagen) }});"></div>
+                                    {% set i=1 %}
+                                {% endif %}
+                            {% endfor %}
+                                <div class="carousel-caption">
+                                    <h3 data-animation="animated rollIn">{{ item.nombre }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container brand2">
+            <i class="icon ion-ios-arrow-thin-down" data="next"></i>
+        </div>
+    </div>
+{% endblock %}
